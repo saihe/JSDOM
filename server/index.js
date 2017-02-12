@@ -11,15 +11,17 @@ jsdom.jQueryify(
 	"./jquery-2.1.0.min.js",
 	function(window, jquery){
 		global.$ = jquery;
-		console.log(xml);
 		testmod.mod1();
-		console.log(xml);
 		console.log("start");
 		//testmod.mod2();
-		/*try{
+		try{
+			var body = "{\"xml\": \""+ xml + "\"}";
+			//body = {"xml": xml};
 			$.ajax({
 				url: "http://127.0.0.1:8888",
 				type: "POST",
+				contentType: "application/json",
+				data: body,
 				crossDomain: true,
 				cache: false,
 				async: false,
@@ -38,7 +40,7 @@ jsdom.jQueryify(
 			});
 		}catch(e){
 			console.log(e);
-		}*/
+		}
 	}
 );
 
